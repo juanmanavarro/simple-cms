@@ -1,13 +1,8 @@
 var mongoose = require('mongoose');
 
 var pageSchema = mongoose.Schema({
-    name: { type: String, required: true , unique: true},
-    texts: [
-        {
-            body: { type: String, required: true },
-            slug: { type: String, required: true, match: /^[a-z0-9-]+$/ }
-        }
-    ]
+    name: { type: String, required: true , unique: 1 },
 });
+//pageSchema.index({ name: 1 }, { unique: true });
 
 mongoose.model('Page', pageSchema);

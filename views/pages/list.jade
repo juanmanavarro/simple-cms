@@ -2,9 +2,11 @@ extends ../layout
 
 block content
     h1= title
+    a(href='pages/new') Create page
     ul
-        li
-            each page in pages
-                a(href=page.id)= page.name
-    
-        
+        each page in pages
+            li
+                a(href='pages/#{page._id}/texts')= page.name
+                form(action='/pages/#{page._id}', method='POST')
+                    input(type="hidden", value='DELETE', name="_method")
+                    input(type="submit", value="Delete")
