@@ -3,5 +3,23 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="//fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css")
+    link(rel="stylesheet", href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css")
   body
-    block content
+      .mdl-layout.mdl-js-layout
+          header.mdl-layout__header
+              .mdl-layout__header-row
+                  span.mdl-layout-title CMS
+                  .mdl-layout-spacer
+                  nav.mdl-navigation
+                      a.mdl-navigation__link(href='#') Github
+          .mdl-layout__drawer
+              span.mdl-layout-title CMS
+              nav.mdl-navigation
+                  a.mdl-navigation__link(href='/pages') Pages
+    
+    .content-grid.mdl-grid          
+        block content
+    
+    script(src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js")

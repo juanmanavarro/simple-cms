@@ -2,22 +2,20 @@ extends ../layout
 
 block content
     h1= page.name
-    a(href='#{page.id}/texts/new') New text
-    unless page.texts
+    a(href='/pages/#{page._id}/texts/new') New text
+    if page.texts.length
         table
             thead
                 tr
-                    th Slug
+                    th Id
                     th Body
-                    th 
+                    th
             tbody
                 each text in page.texts
                     tr
-                        td= text.slug
+                        td= text.id
                         td= text.body
                         td
-                            form(action='/pages/#{page._id}/texts/#{text.slug}', 
-                                method='post', 
-                                enctype='application/x-www-form-urlencoded')
+                            form(action='/pages/#{page._id}/texts/#{text.slug}', method='post')
                                 input(type='hidden', value='DELETE', name='_method')
                                 button(type='submit') Delete

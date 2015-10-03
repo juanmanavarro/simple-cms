@@ -1,12 +1,14 @@
 extends ../layout
 
 block content
-    h1= title
-    a(href='pages/new') Create page
-    ul
-        each page in pages
-            li
-                a(href='pages/#{page._id}/texts')= page.name
-                form(action='/pages/#{page._id}', method='POST')
-                    input(type="hidden", value='DELETE', name="_method")
-                    input(type="submit", value="Delete")
+    .md-cell.mdl-cell--12-col
+        h1= title
+        a(href='/pages/new') Create page
+    .md-cell.mdl-cell--12-col
+        ul
+            each page in pages
+                li
+                    a(href='/pages/#{page._id}/texts')= page.name
+                    form(action='/pages/#{page._id}', method='POST')
+                        input(type="hidden", value='DELETE', name="_method")
+                        input(type="submit", value="Delete")

@@ -43,7 +43,8 @@ router.post('/', function(req, res) {
         res.redirect('/pages');
     });
 });
-router.get('/:id', function(req, res, next) {
+
+router.get('/:id/texts', function(req, res, next) {
     page.findById(req.params.id, function(err, page) {
         if(err) return console.error(err);
 
@@ -63,6 +64,41 @@ router.delete('/:id', function(req, res) {
         });
     });
 });
+
+/*router.get('/:id/new', function(req, res, next) {
+    res.render('pages/new-text', {
+        title: 'New text',
+        pageId: req.params.id
+    });
+});
+
+
+
+router.post('/:id/texts', function(req, res) {
+    var body = req.body.body;
+    text.create({
+        body: body
+    }, function(err, text) {
+        if(err) return console.error(err);
+
+        page.findById(req.params.id, function(err, page) {
+            page.update({
+                $push: text
+            }, function(err, result) {
+                if(err) return console.error(err);
+
+                console.log('PAGE', page)
+                res.redirect(page.id);
+            });
+        });
+    });
+});*/
+
+/*router.delete('/:id/texts/:slug', function(req, res) {
+    page.findById(req.params.id, function(req, res) {
+        if(err) return console.error(err);
+
+        //page.find
     });
 });*/
 
