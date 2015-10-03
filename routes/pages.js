@@ -6,7 +6,23 @@ var page = mongoose.model('Page');
 
 router.get('/', function(req, res, next) {
     page.find({}, function(err, pages) {
-        res.render('pages/list', pages);
+        if(err) return console.error(err);
+
+        res.render('pages/list', {
+            title: 'All pages',
+            pages: pages
+        });
+    });
+});
+
+router.get('/:id', function(req, res, next) {
+    page.findById(req.params.id, function(err, page) {
+        if(err) return console.error(err);
+
+        res.render('pages/page', {
+            title: 'Page texts',
+            page: page
+        });
     });
 });
 

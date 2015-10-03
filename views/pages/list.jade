@@ -1,8 +1,10 @@
 extends ../layout
 
 block content
-  h1= title
-  table
-      thead
-          th Slug
-          th Body
+    h1= title
+    ul
+        li
+            each page in pages
+                a(href=page.id)= page.name
+    
+        

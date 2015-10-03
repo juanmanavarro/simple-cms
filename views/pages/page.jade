@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    h1= page.name
+    table
+        thead
+            tr
+                th Slug
+                th Body
+        tbody
+            each text in page.texts
+                tr
+                    td= text.slug
+                    td= text.body
+            
+        
