@@ -6,16 +6,16 @@ var page = mongoose.model('Page');
 
 router.get('/', function(req, res, next) {
     page.find({}, function(err, pages) {
-        res.render('pages/list', pages);
+        res.json(pages);
     });
 });
 
-/*router.get('/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
     page.findById(req.params.id, function(err, page) {
         if(err) res.json({ message: 'No page found' });
 
         res.json(page);
     });
-});*/
+});
 
 module.exports = router;

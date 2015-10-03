@@ -9,8 +9,9 @@ var db = require('./models/db');
 var page = require('./models/page');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var pages = require('./routes/pages');
+
+var pagesApi = require('./routes/pages.api');
 
 var app = express();
 
@@ -26,9 +27,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// html routes
 app.use('/', routes);
-//app.use('/users', users);
-app.use('/api/v1/pages', pages);
+app.use('/pages', pages);
+
+// api routes
+app.use('/api/v1/pages', pagesApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
