@@ -1,25 +1,41 @@
-doctype html
-html
+doctype //
+html(lang='en')
   head
-    title= title
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='Introducing Lollipop, a sweet new take on Android.')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title CMS
+    // Page styles
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')     
+    link(rel='stylesheet', href='//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel="stylesheet", href="//fonts.googleapis.com/icon?family=Material+Icons")
-    link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css")
-    link(rel="stylesheet", href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css")
+    
+    style.
+      #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+      }
+   
   body
-      .mdl-layout.mdl-js-layout
-          header.mdl-layout__header
-              .mdl-layout__header-row
-                  span.mdl-layout-title CMS
-                  .mdl-layout-spacer
-                  nav.mdl-navigation
-                      a.mdl-navigation__link(href='#') Github
-          .mdl-layout__drawer
-              span.mdl-layout-title CMS
-              nav.mdl-navigation
-                  a.mdl-navigation__link(href='/pages') Pages
-    
-    .content-grid.mdl-grid          
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      .android-header.mdl-layout__header.mdl-layout__header--waterfall
+        .mdl-layout__header-row
+          span.mdl-layout-title Simple-CMS
+          // Add spacer, to align navigation to the right in desktop
+          .android-header-spacer.mdl-layout-spacer
+          // Navigation
+          .android-navigation-container
+            nav.android-navigation.mdl-navigation
+              a.mdl-navigation__link(href='') Github         
+           
+      .android-content.mdl-layout__content
         block content
-    
-    script(src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js")
+     
+    script(src='//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js')
