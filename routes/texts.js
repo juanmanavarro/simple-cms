@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 var Page = mongoose.model('Page');
-var text = mongoose.model('Text');
+var Text = mongoose.model('Text');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(methodOverride(function(req, res){
@@ -30,7 +30,7 @@ router.get('/new', function(req, res) {
 
 router.post('/', function(req, res) {
     var pageId = req.params.id;
-    text.create({
+    Text.create({
         body: req.body.body
     }, function(err, text) {
         if(err) return console.error(err);
@@ -44,5 +44,15 @@ router.post('/', function(req, res) {
         });
     });
 });
+
+router.delete('/:textId', function(req, res) {
+    Page.findById(req.params.id, function(err, page) {
+        if(err) return console.error(err);
+
+        page.texts.pull(req.params.textId);
+        page.save();
+        res.redirect('/pages/' + page.id + '/texts');
+    });
+})
 
 module.exports = router;

@@ -19,7 +19,7 @@ block content
                             td.mdl-data-table__cell--non-numeric= text.id
                             td.mdl-data-table__cell--non-numeric= text.body
                             td
-                                form(action='/pages/#{page._id}/texts/#{text.slug}', method='post')
+                                form(action='/pages/#{page._id}/texts/#{text.id}', method='post')
                                     input(type='hidden', value='DELETE', name='_method')
                                     button.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--accent(type='submit')
                                         i.material-icons delete
