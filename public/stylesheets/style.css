@@ -21,16 +21,6 @@
        url("fonts/and_black.ttf") format('truetype');
 }
 
-.mdl-card__actions {
-  display: flex;
-  box-sizing:border-box;
-  align-items: center;
-}
-.mdl-card__actions > .mdl-button--icon {
-  margin-right: 3px;
-  margin-left: 3px;
-}
-
 body {
   margin: 0;
 }
@@ -542,4 +532,18 @@ a img{
   .android-footer .mdl-mega-footer--bottom-section {
     display: none;
   }
+}
+
+.mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.mdl-card__actions > .mdl-button--icon {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+#title {
+    color: white;
+    text-decoration: none;
 }
