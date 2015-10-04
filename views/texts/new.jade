@@ -1,8 +1,14 @@
 extends ../layout
 
 block content
-    h1= title
-    form(action='/pages/#{page._id}/texts', method='post')
-        textarea(placeholder='body', name='body')
-        button(type='submit') Send
-        
+    .android-more-section
+        .android-section-title.mdl-typography--display-1-color-contrast= title
+               
+        .android-card-container
+            .mdl-cell.mdl-cell--12-col
+                form(action='/pages/#{page._id}/texts', method='post')
+                    p.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                            textarea#body.mdl-textfield__input(type='text', rows='3', name='body')  
+                            label.mdl-textfield__label(for='body') Body
+                    p
+                        button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent Create
