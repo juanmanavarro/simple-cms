@@ -1,11 +1,15 @@
 extends ../layout
 
 block content
-    h1= title
-    form(action='/pages', method='POST')
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input(type="text", name='name', class="mdl-textfield__input")
-            label.mdl-textfield__label Name
-        input(type="submit", value='Create')
-            
+    .android-more-section
+        .android-section-title.mdl-typography--display-1-color-contrast= title
+               
+        .android-card-container
+            .mdl-cell.mdl-cell--3-col
+                form(action='/pages', method='POST')
+                    p.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                        input#name.mdl-textfield__input(type='text',name='name')
+                        label.mdl-textfield__label(for='name') Name
+                    p
+                        button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent Create
         
