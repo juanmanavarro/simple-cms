@@ -1,22 +1,24 @@
 extends ../layout
 
 block content
-    .md-cell.mdl-cell--4-col
-        span.mdl-typography--display-2= title
-    .md-cell.mdl-cell--8-col
-        a.mdl-button.mdl-button--fab.mdl-button--primary(href='/pages/new')
-            i.material-icons add
-    .md-cell.mdl-cell--12-col
-        .mdl-grid
+    .android-more-section
+        .android-section-title.mdl-typography--display-1-color-contrast Pages
+               
+        .android-card-container.mdl-grid
+
             each page in pages
-                .mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+                .mdl-cell.mdl-cell--3-col.mdl-cell--4-col-tablet.mdl-cell--4-col-phone.mdl-card.mdl-shadow--3dp
                     .mdl-card__title
-                        .mdl-card__title-text= page.name
+                        h4.mdl-card__title-text= page.name       
                     .mdl-card__supporting-text
-                    .mdl-card__actions.mdl-card--border
-                        a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/pages/#{page._id}/texts') View
+                        span.mdl-typography--font-light.mdl-typography--subhead Four tips to make your switch to Android quick and easy
+                    .mdl-card__actions
+                        a.android-link.mdl-button.mdl-js-button.mdl-typography--text-uppercase(href='/pages/#{page.id}/texts') Ver
                         .mdl-layout-spacer
                         form(action='/pages/#{page._id}', method='POST')
                             input(type="hidden", value='DELETE', name="_method")
                             button.mdl-button.mdl-button--accent.mdl-button-icon(type="submit")
                                 i.material-icons delete
+    a#view-source.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/pages/new')
+        i.material-icons add
+    
